@@ -1,0 +1,53 @@
+{{#if robots}}
+<nav class="navbar navbar-expand-md navbar-dark bg-dark ">
+  <img src="../img/logo.png" alt="" style="height:45px; width:45px">
+  <div class="collapse navbar-collapse">
+    <ul class="nav navbar-nav float-left center">
+      {{#each robots}}
+      <li class="nav-item active">
+        <a class="nav-link" href="/robots/{{name}}">{{name}}<span class="sr-only">(current)</span></a>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+</nav>
+{{/if}}
+<h1 style="padding-top:30px">Bonjour {{user.username}}</h1>
+<div class="row" style="padding-top:30px">
+  <div class="col-6">
+    <video controls="controls" src="../videos/{{res.video_src}}" style="width:530px">
+    </video>
+  </div>
+  <div class="col-6">
+    <div id="map" style="height: 100%;"></div>
+  </div>
+
+</div>
+<script type="text/javascript"
+  src="/js/jquery.js">
+</script>
+
+<script>
+var results;
+$.get("/map", function(data, status){
+        alert("GoogleMaps API connectée");
+        results = data;
+    });
+function initMap() {
+  var uluru = new google.maps.LatLng(results[0].lat,results[0].long);
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 4,
+    center: uluru
+  });
+  for(var i = 0 ; i<results.length;i++){
+    uluru = new google.maps.LatLng(results[i].lat,results[i].long);
+    var marker = new google.maps.Marker({
+      position: uluru,
+      map: map
+    });
+  }
+}
+</script>
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBY47KNWRoDeTOptbalDt8_YEksl_PuCNE&callback=initMap">
+</script>

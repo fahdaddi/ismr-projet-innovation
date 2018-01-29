@@ -1,0 +1,37 @@
+[
+  {
+    "name":"robot0",
+    "long" : -6.866659,
+    "lat" : 33.979679,
+    "users":["admin", "fahd"],
+    "video":"video1.mkv"
+  },
+  {
+    "name":"robot1",
+    "long": -7.613028,
+    "lat": 33.570990,
+    "users":["fahd"],
+    "video":"video2.mkv"
+  },
+  {
+    "name":"robot2",
+    "long": -7.639613,
+    "lat":33.542678,
+    "users":["admin"],
+    "video":"video1.mkv"
+  },
+  {
+    "name":"robot3",
+    "long": -6.723979,
+    "lat":33.987738,
+    "users":["admin", "fahd"],
+    "video":"video1.mkv"
+  },
+  {
+    "name":"robot4",
+    "long": -6.723979,
+    "lat":33.987738,
+    "users":["admin", "fahd"],
+    "video":"video1.mkv"
+  }
+]
